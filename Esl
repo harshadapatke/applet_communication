@@ -1,0 +1,67 @@
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class Esl extends Applet implements ActionListener,ItemListener {
+Button b1;
+Checkbox c1,c2;
+TextField t;
+String str = new String();
+String str1=new String();
+app2 app2;
+public void init(){
+	
+b1=new Button("Subscribe");
+b1.addActionListener(this);
+
+t=new TextField(10);
+add(t);
+c1=new Checkbox("Sports");
+add(c1);
+c1.addItemListener(this);
+c2=new Checkbox("Academics");
+c2.addItemListener(this);
+add(c2);
+add(b1);
+}
+
+public void actionPerformed(ActionEvent ae)
+{
+	
+	/*if(c1.getState()==true)
+	str="Subscribed Sports";
+	
+	if(c2.getState()==true)
+	str1="Subscribed Academics";
+
+	repaint();*/
+	
+	app2=(app2)getAppletContext().getApplet("app2");
+	
+	if (app2 != null) {
+     app2.init();
+     System.out.println("AFTER");
+	}
+    else {
+       System.out.println("Not Running\n");
+    }
+
+}
+
+public void itemStateChanged(ItemEvent ae)
+{
+	
+}
+
+public void paint(Graphics g)
+{
+g.drawString(t.getText(),60, 80);
+	
+g.drawString(str, 60, 100);	
+g.drawString(str1, 60, 120);
+
+//g.drawString("c1:"+c1.getState(), 80, 80);
+//g.drawString("c2:"+c2.getState(), 100, 100);
+}
+}
