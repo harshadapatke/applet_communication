@@ -6,6 +6,7 @@ public class app2 extends Applet{
 	public void init()
 	{
 		Button b1=new Button("ok");
+		Label l = new Label("yes");
 		add(b1);
 		
 	}
